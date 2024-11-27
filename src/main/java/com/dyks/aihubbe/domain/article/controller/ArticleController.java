@@ -54,15 +54,15 @@ public class ArticleController {
 	}
 
 	//게시글 삭제(소프트)
-	@PatchMapping("/{articleId}")
+	/*@PatchMapping("/{articleId}")
 	@Operation(summary = "게시글 삭제", description = "게시글을 삭제(상태 변경)합니다.")
 	public ResponseEntity<GlobalResponseDto<Void>> deleteArticle(
 		HttpServletRequest request,
 		@PathVariable UUID articleId) {
 		articleService.deleteArticle(request, articleId);
 		return ResponseEntity.status(HttpStatus.OK).body(GlobalResponseDto.success());
-	}
-	/*@PatchMapping("/{articleId}")
+	}*/
+	@PatchMapping("/{articleId}")
 	@Operation(summary = "게시글 삭제", description = "게시글을 삭제(상태 변경)합니다.")
 	public ResponseEntity<GlobalResponseDto<Void>> deleteArticle(
 		HttpServletRequest request,
@@ -77,7 +77,7 @@ public class ArticleController {
 			// 유효하지 않은 UUID 처리
 			throw new DeleteForbiddenException();
 		}
-	}*/
+	}
 
 	//게시글 조회
 	@GetMapping("/{articleId}")
